@@ -12,7 +12,7 @@ string(REPLACE "::" "_" CUR_SUPERIOR_NAMESPACE_UNDERLINE ${CUR_SUPERIOR_NAMESPAC
 set(CUR_TARGET_NAME ${CUR_SUPERIOR_NAMESPACE_UNDERLINE}_${CUR_DIR})
 set(CUR_TARGET_ALIAS_NAME ${CUR_SUPERIOR_NAMESPACE}::${CUR_DIR})
 
-message(STATUS "DEBUG protocols")
+message(STATUS "DEBUG at protocols")
 message(STATUS "CUR_DIR = ${CUR_DIR}")
 message(STATUS "CUR_SUPERIOR_NAMESPACE = ${CUR_SUPERIOR_NAMESPACE}")
 message(STATUS "CUR_SUPERIOR_NAMESPACE_UNDERLINE = ${CUR_SUPERIOR_NAMESPACE_UNDERLINE}")
@@ -22,9 +22,9 @@ message(STATUS "CUR_TARGET_ALIAS_NAME = ${CUR_TARGET_ALIAS_NAME}")
 
 # Add target
 add_protobuf_gencode_target_for_proto_path(
-  TARGET_NAME ${CUR_TARGET_NAME}_pb_gencode
-  PROTO_PATH ${CMAKE_CURRENT_SOURCE_DIR}
-  GENCODE_PATH ${CMAKE_CURRENT_BINARY_DIR})
+        TARGET_NAME ${CUR_TARGET_NAME}_pb_gencode
+        PROTO_PATH ${CMAKE_CURRENT_SOURCE_DIR}
+        GENCODE_PATH ${CMAKE_CURRENT_BINARY_DIR})
 add_library(${CUR_TARGET_ALIAS_NAME}_pb_gencode ALIAS ${CUR_TARGET_NAME}_pb_gencode)
 
 message(STATUS "add_protobuf_gencode_target_for_proto_path : ")
@@ -34,10 +34,10 @@ message(STATUS "GENCODE_PATH =  ${CMAKE_CURRENT_BINARY_DIR})")
 message(STATUS "add_library : ${CUR_TARGET_ALIAS_NAME}_pb_gencode")
 
 add_protobuf_aimrt_rpc_gencode_target_for_proto_files(
-  TARGET_NAME ${CUR_TARGET_NAME}_aimrt_rpc_gencode
-  PROTO_FILES ${CMAKE_CURRENT_SOURCE_DIR}/rpc.proto
-  GENCODE_PATH ${CMAKE_CURRENT_BINARY_DIR}
-  DEP_PROTO_TARGETS ${CUR_TARGET_ALIAS_NAME}_pb_gencode)
+        TARGET_NAME ${CUR_TARGET_NAME}_aimrt_rpc_gencode
+        PROTO_FILES ${CMAKE_CURRENT_SOURCE_DIR}/rpc.proto
+        GENCODE_PATH ${CMAKE_CURRENT_BINARY_DIR}
+        DEP_PROTO_TARGETS ${CUR_TARGET_ALIAS_NAME}_pb_gencode)
 add_library(${CUR_TARGET_ALIAS_NAME}_aimrt_rpc_gencode ALIAS ${CUR_TARGET_NAME}_aimrt_rpc_gencode)
 
 message(STATUS "add_protobuf_aimrt_rpc_gencode_target_for_proto_files : ")
@@ -50,10 +50,10 @@ message(STATUS "add_library :${CUR_TARGET_ALIAS_NAME}_aimrt_rpc_gencode")
 add_library(${CUR_TARGET_NAME}_ts SHARED ${CMAKE_CURRENT_SOURCE_DIR}/type_support_pkg_main.cc)
 add_library(${CUR_TARGET_ALIAS_NAME}_ts ALIAS ${CUR_TARGET_NAME}_ts)
 target_link_libraries(
-  ${CUR_TARGET_NAME}_ts
-  PRIVATE aimrt::interface::aimrt_type_support_pkg_c_interface
-          aimrt::interface::aimrt_module_protobuf_interface
-          ${CUR_TARGET_ALIAS_NAME}_pb_gencode)
+        ${CUR_TARGET_NAME}_ts
+        PRIVATE aimrt::interface::aimrt_type_support_pkg_c_interface
+        aimrt::interface::aimrt_module_protobuf_interface
+        ${CUR_TARGET_ALIAS_NAME}_pb_gencode)
 set_target_properties(${CUR_TARGET_NAME}_ts PROPERTIES OUTPUT_NAME ${CUR_DIR}_pb_ts)
 
 message(STATUS "add_library : ${CUR_TARGET_NAME}_ts")

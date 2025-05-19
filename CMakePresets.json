@@ -1,0 +1,158 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "AimRT Dependencies (Makefile)",
+      "description": "Configure project with Make generator and relative dependency paths",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "AimRT_DEP_DIR": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep"
+        },
+        "asio_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/asio-asio-1-30-2"
+        },
+        "boost_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/boost-1.82.0"
+        },
+        "cpptoml_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/cpptoml-v0.1.0"
+        },
+        "fmt_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/fmt-10.2.1"
+        },
+        "gflags_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/gflags-v2.2.2"
+        },
+        "googletest_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/googletest-v1.13.0"
+        },
+        "iceoryx_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/iceoryx-v2.95.4"
+        },
+        "jsoncpp_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/jsoncpp-1.9.6"
+        },
+        "libunifex_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/libunifex-591ec09e7d51858ad05be979d4034574215f5971"
+        },
+        "mcap_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/mcap-releases-cpp-v2.0.0"
+        },
+        "zstd_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/facebook-zstd-v1.5.7"
+        },
+        "lz4_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/LZ4_old1-v1.10.0"
+        },
+        "nghttp2_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/nghttp2-v1.62.1"
+        },
+        "nlohmann_json_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/json-v3.11.3"
+        },
+        "opentelemetry_cpp_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/opentelemetry-cpp-v1.16.1"
+        },
+        "opentelemetry_proto_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/opentelemetry-proto-v1.3.2"
+        },
+        "paho_mqtt_c_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/paho.mqtt.c-v1.3.13"
+        },
+        "protobuf_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/protobufsource-v3.21.12"
+        },
+        "pybind11_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/pybind11-v2.13.1"
+        },
+        "stdexec_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/stdexec-nvhpc-23.09.rc4"
+        },
+        "tbb_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/tbb-v2021.13.0"
+        },
+        "yaml-cpp_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/yaml-cpp-0.8.0"
+        },
+        "zenohc_LOCAL_SOURCE": {
+          "type": "STRING",
+          "value": "/home/llx/AimRT_dep/zenoh-c-1.0.0.11"
+        },
+        "CMAKE_BUILD_TYPE": "Release",
+        "AIMRT_INSTALL": "OFF",
+        "CMAKE_INSTALL_PREFIX": "./build/install",
+        "AIMRT_BUILD_TESTS": "OFF",
+        "AIMRT_BUILD_EXAMPLES": "ON",
+        "AIMRT_BUILD_DOCUMENT": "OFF",
+        "AIMRT_BUILD_PROTOCOLS": "ON",
+        "AIMRT_BUILD_RUNTIME": "ON",
+        "AIMRT_BUILD_CLI_TOOLS": "ON",
+        "AIMRT_BUILD_PYTHON_RUNTIME": "ON",
+        "AIMRT_USE_FMT_LIB": "ON",
+        "AIMRT_BUILD_WITH_PROTOBUF": "ON",
+        "AIMRT_USE_LOCAL_PROTOC_COMPILER": "ON",
+        "AIMRT_USE_PROTOC_PYTHON_PLUGIN": "OFF",
+        "AIMRT_BUILD_WITH_ROS2": "OFF",
+        "AIMRT_BUILD_NET_PLUGIN": "ON",
+        "AIMRT_BUILD_MQTT_PLUGIN": "ON",
+        "AIMRT_BUILD_ZENOH_PLUGIN": "ON",
+        "AIMRT_BUILD_ICEORYX_PLUGIN": "ON",
+        "AIMRT_BUILD_ROS2_PLUGIN": "OFF",
+        "AIMRT_BUILD_RECORD_PLAYBACK_PLUGIN": "ON",
+        "AIMRT_BUILD_TIME_MANIPULATOR_PLUGIN": "ON",
+        "AIMRT_BUILD_PARAMETER_PLUGIN": "ON",
+        "AIMRT_BUILD_LOG_CONTROL_PLUGIN": "ON",
+        "AIMRT_BUILD_TOPIC_LOGGER_PLUGIN": "ON",
+        "AIMRT_BUILD_OPENTELEMETRY_PLUGIN": "ON",
+        "AIMRT_BUILD_GRPC_PLUGIN": "ON",
+        "AIMRT_BUILD_ECHO_PLUGIN": "ON",
+        "AIMRT_BUILD_PROXY_PLUGIN": "ON",
+        "AIMRT_BUILD_PYTHON_PACKAGE": "ON"
+      },
+      "environment": {
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+        "CMAKE_CXX_EXTENSIONS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "jobs": 20,
+      "targets": [ "install" ]
+    }
+  ]
+}

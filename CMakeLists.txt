@@ -11,7 +11,7 @@ project(aimrt LANGUAGES C CXX)
 set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 # Set cmake path
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH   ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(CMakeDependentOption)
 
@@ -75,6 +75,7 @@ if(NOT DEFINED AIMRT_MASTER_PROJECT)
   set(AIMRT_MASTER_PROJECT OFF)
   if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     set(AIMRT_MASTER_PROJECT ON)
+    message(STATUS "AIMRT_MASTER_PROJECT : ${AIMRT_MASTER_PROJECT}")
   endif()
 endif()
 
@@ -289,6 +290,7 @@ endif()
 
 # Add subdirectory
 add_subdirectory(src)
+add_subdirectory(proj)
 
 if(AIMRT_INSTALL)
   # Install

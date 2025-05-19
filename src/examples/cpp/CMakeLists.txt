@@ -17,3 +17,4 @@ if(AIMRT_BUILD_WITH_ROS2)
   add_subdirectory(ros2_chn)
   add_subdirectory(ros2_rpc)
 endif()
+

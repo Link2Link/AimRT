@@ -1,0 +1,52 @@
+# Copyright (c) 2023, AgiBot Inc.
+# All rights reserved.
+
+aimrt:
+  log:
+    core_lvl: INFO # Trace/Debug/Info/Warn/Error/Fatal/Off
+    default_module_lvl: INFO
+    backends:
+      - type: console
+        options:
+          color: true
+      - type: rotate_file
+        options:
+          path: ./log
+          filename: LearnAimRT_real_time.log
+          max_file_size_m: 10 # 日志文件最大尺寸，单位m
+          max_file_num: 10 # 最大日志文件数量，0代表无限
+
+
+  main_thread:
+    name: main_thread
+    thread_sched_policy: SCHED_FIFO:80
+    thread_bind_cpu: [0, 1]
+
+  module:
+    pkgs:
+      - path: ./libproj_LearnAimRT_hello.so
+    modules:
+      - name: HelloModule
+        log_lvl: INFO
+        enable: True
+      - name: ExecutorModule
+        log_lvl: INFO
+        enable: True
+  executor: # 执行器配置
+    executors: # 当前先支持thread型，未来可根据加载的网络模块提供更多类型
+      - name: work_thread_pool # 线程池
+        type: asio_thread
+        options:
+          thread_num: 3 # 线程数，不指定则默认单线程
+      - name: thread_safe_executor # 线程安全执行器
+        type: asio_thread
+        options:
+          thread_num: 1 # 线程数，设置为1个线程
+# Module custom configuration
+HelloModule:
+  key1: val1
+  key2: val2
+
+ExecutorModule:
+  name: test
+  ip: 127.0.0.1
