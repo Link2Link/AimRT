@@ -270,7 +270,6 @@ void RecordAction::Shutdown() {
   });
 
   sync_timer_->Cancel();
-  sync_timer_->SyncWait();
 
   stop_promise.get_future().wait();
 }
@@ -469,7 +468,7 @@ void RecordAction::UpdateMetadata(std::unordered_map<std::string, std::string>&&
     try {
       YAML::Node parsed_node = YAML::Load(value);
       metadata_.extra_attributes[key] = parsed_node;
-    } catch (const std::exception& e) {
+    } catch (...) {
       metadata_.extra_attributes[key] = value;
     }
   }
